@@ -231,7 +231,7 @@ etc to function properly when an html page is opened via `file://` scheme instea
 ### Running the App during Development
 
 The angular-seed project comes preconfigured with a local development webserver. 
-You can start this webserver with `npm start` but you may choose to install the tool globally:
+You can start this webserver with `npm start`.
 
 Alternatively, you can choose to configure your own webserver, such as apache or nginx. Just
 configure your server to serve the files under the `app/` directory.
