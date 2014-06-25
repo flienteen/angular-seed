@@ -1,5 +1,17 @@
 # angular-seed — the seed for AngularJS apps
 
+This is a fork of [angular-seed](https://github.com/angular/angular-seed). 
+Changes: 
+
+* Switching to angular-ui-router instead of angular-route
+* Added angular-bootstrap
+* Added [Jade](https://github.com/visionmedia/jade)
+* Added [Stylus](https://github.com/learnboost/stylus)
+* Added [Grunt](http://gruntjs.com)
+* Auto building app from source folder
+* Auto inserting bower js/css dependencies
+
+
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these
 projects.
@@ -27,7 +39,7 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the angular-seed repository using [git][git]:
 
 ```
-git clone https://github.com/angular/angular-seed.git
+git clone https://github.com/flienteen/angular-seed.git
 cd angular-seed
 ```
 
@@ -49,11 +61,8 @@ Behind the scenes this will also call `bower install`.  You should find that you
 folders in your project.
 
 * `node_modules` - contains the npm packages for the tools we need
-* `app/bower_components` - contains the angular framework files
+* `bower_components` - contains the angular framework files
 
-*Note that the `bower_components` folder would normally be installed in the root folder but
-angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes
-it easier to serve the files by a webserver.*
 
 ### Run the Application
 
@@ -64,27 +73,31 @@ this server is:
 npm start
 ```
 
-Now browse to the app at `http://localhost:8000/app/index.html`.
+Now browse to the app at `http://localhost:8000/`.
 
 
 
 ## Directory Layout
 
-    app/                --> all of the files to be used in production
-      css/              --> css files
-        app.css         --> default stylesheet
+    app/                --> auto build folder, all of the files to be used in production
+    
+    src/                --> all of the files to be used in developing
+      css/              --> css/stylus files
+        app.styl        --> default stylesheet
       img/              --> image files
-      index.html        --> app layout file (the main html template file of the app)
+      index.jade        --> app layout file (the main jade template file of the app)
+      scripts.jade      --> file with all scripts tag, including auto inserted tag from bower packages
+      styles.jade       --> file with all styles tag, including auto inserted tag from bower packages
       index-async.html  --> just like index.html, but loads js files asynchronously
       js/               --> javascript files
+        controllers/    --> application controllers
+        directives/     --> application directives
+        filters/        --> custom angular filters
+        services/       --> custom angular services        
         app.js          --> application
-        controllers.js  --> application controllers
-        directives.js   --> application directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
       partials/             --> angular view partials (partial html templates)
-        partial1.html
-        partial2.html
+        partial1.jade
+        partial2.jade
 
     test/               --> test config and source files
       protractor-conf.js    --> config file for running e2e tests with Protractor
@@ -217,20 +230,8 @@ etc to function properly when an html page is opened via `file://` scheme instea
 
 ### Running the App during Development
 
-The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
-tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
-install the tool globally:
-
-```
-sudo npm install -g http-server
-```
-
-Then you can start your own development web server to serve static files from a folder by
-running:
-
-```
-http-server
-```
+The angular-seed project comes preconfigured with a local development webserver. 
+You can start this webserver with `npm start` but you may choose to install the tool globally:
 
 Alternatively, you can choose to configure your own webserver, such as apache or nginx. Just
 configure your server to serve the files under the `app/` directory.
@@ -286,4 +287,6 @@ For more information on AngularJS please check out http://angularjs.org/
 [jasmine]: http://pivotal.github.com/jasmine/
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
-[http-server]: https://github.com/nodeapps/http-server
+[jade]: https://github.com/visionmedia/jade
+[stylus]: https://github.com/learnboost/stylus
+[grunt]: http://gruntjs.com
